@@ -48,6 +48,13 @@ public class EmployeeController {
 	@PostMapping("/employees")
 	public Employee createEmployee(@RequestBody Employee employee)
 	{	employee.setId(employee.getPhone());
+		Employment emp = new Employment();
+		emp.setEmployee(employee);
+		emp.setPost(employee.getPost());
+		emp.setOffice(employee.getOffice());
+		emp.setJoiningDate(employee.getJoiningDate());
+		emp.setRemarks(employee.getRemarks());
+		employee.addEmployment(emp);
 		return employeeRepository.save(employee);
 	}
 	
@@ -94,7 +101,16 @@ public class EmployeeController {
 		employee.setQualification(employeeDetails.getQualification());
 		employee.setDob(employee.getDob());
 		employee.setAddress(employee.getAddress());
-		
+
+		Employment emp = new Employment();
+//		emp.setEmployee(employee);
+		emp.setPost(employeeDetails.getPost());
+		emp.setOffice(employeeDetails.getOffice());
+		emp.setJoiningDate(employeeDetails.getJoiningDate());
+		emp.setRemarks(employeeDetails.getRemarks());
+
+		employee.addEmployment(emp);
+
 		Employee updatedEmployee=employeeRepository.save(employee);
 		
 		return ResponseEntity.ok(updatedEmployee);

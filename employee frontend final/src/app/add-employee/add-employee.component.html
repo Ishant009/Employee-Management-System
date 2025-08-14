@@ -180,7 +180,26 @@
             </div>
 
 
-            <br><br><br><br>
+            <br><br>
+            <div class="form-group">
+                <label><b>Remarks</b></label>
+                <select id="remarks" class="form-select" [(ngModel)]="employee.remarks" name="remarks" required
+                    #remarks="ngModel" [ngClass]="{ 'is-invalid': f.submitted && remarks.errors }">
+
+
+                    <div *ngIf="f.submitted && remarks.errors" class="invalid-feedback">
+                        <div *ngIf="remarks.errors['required']">Remarks is required</div>
+                    </div>
+
+
+                    <option selected disabled value="">Choose..</option>
+                    <option>First Appointment</option>
+                    <option>Transfer</option>
+                    <option>Promotion</option>
+                    <option>Others</option>
+                </select>
+            </div>
+            <br><br> <br><br>
 
 
             <div class="form-group col-md-6">

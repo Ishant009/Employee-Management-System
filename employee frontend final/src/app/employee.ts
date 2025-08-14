@@ -15,6 +15,7 @@ export class Employee {
     dob!: string;
     joiningDate!: string;
     employmentHistory!: Employment[];
+    remarks!: string;
   
     
    

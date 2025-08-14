@@ -33,8 +33,12 @@ public class Employment {
 		this.remarks = remarks;
 	}
 
+//	@Id
+//	@Column(name = "history_id")
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private Long historyId;
+
 	@Id
-	@Column(name = "history_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long historyId;
 

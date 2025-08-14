@@ -1,5 +1,6 @@
 package com.example.demo.model;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -73,8 +74,20 @@ public class Employee {
 	@Column(name="jd")
 	private LocalDate joiningDate;
 
+	@Column(name="remarks")
+	private String remarks;
+
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
 	private List<Employment> employmentHistory;
+
+	public void addEmployment(Employment employment) {
+		if (employmentHistory == null) {
+			employmentHistory = new ArrayList<>();
+		}
+		employmentHistory.add(employment);
+		employment.setEmployee(this);
+	}
+
 
 }
