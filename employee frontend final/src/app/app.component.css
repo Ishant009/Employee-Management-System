@@ -1,0 +1,138 @@
+/* Ensure HTML and Body take full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* A default font for consistency */
+}
+
+/* Use Flexbox for the overall page layout */
+body {
+    display: flex;
+    flex-direction: column; /* Stack navbar, main content, and footer vertically */
+}
+
+/* Navbar styles */
+.navbar {
+    color: white;
+    background-color: black;
+    padding: 1rem; /* Add consistent padding for a better visual height */
+    /* Remove 'font-size: 3rem;' from .navbar if it's unintentionally large. */
+    /* If 3rem is intentional, ensure its height is accounted for in main-content-wrapper min-height if you use it. */
+    position: sticky; /* Keep sticky behavior */
+    top: 0;
+    z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.nav-item {
+    color: white;
+    margin-left: 2.5rem;
+    font-size: 1rem; /* Use consistent font size for nav items */
+}
+
+.logout-option {
+    display: none; /* Initially hide logout option */
+}
+
+.nav-item:hover .logout-option {
+    display: block; /* Show logout option on hover */
+}
+
+
+/* Main content wrapper - The key to pushing the footer down */
+.main-content-wrapper {
+    flex-grow: 1; /* This makes the content area take all available vertical space */
+    padding: 20px; /* Add internal padding for content spacing */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    /* No need for min-height or margin-bottom here due to flex-grow: 1 on body */
+}
+
+/* Footer styles */
+.footer {
+    width: 100%;
+    padding: 15px 0; /* Vertical padding */
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    flex-shrink: 0; /* Prevents the footer from shrinking when content is short */
+    z-index: 99; /* Ensure footer is below navbar if it overlaps */
+}
+
+/* Specific styles for the "Employee Details" component (from previous interactions) */
+.container {
+    /* Adjust as needed for the component's internal container */
+    max-width: 1200px; /* Example max-width */
+    margin: 0 auto;
+    padding: 0 20px; /* Add horizontal padding to the inner container */
+    box-sizing: border-box;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+img {
+    margin-top: 0.3rem;
+    width: 15rem;
+    height: 12rem;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.table-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.table-container table,
+.employment-history-section {
+    flex: 1 1 45%; /* Flexible sizing for two tables */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%; /* Ensure tables fill their container */
+    border-collapse: collapse;
+    outline: 1px solid black;
+    margin-top: 0.5rem;
+}
+
+/* Button row for "Update Details" and "Back" */
+.buttons-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem; /* Spacing between buttons */
+  margin-top: 20px; /* Space above the buttons */
+}
+
+/* Lock the footer to the bottom of the viewport */
+.footer {
+    position: fixed; /* This is the key change */
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0; /* Add padding for visual separation */
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    z-index: 99; /* Ensure it's above other page content */
+  }
+  
+  /* Add a margin to the main content wrapper to prevent overlap */
+  .main-content-wrapper {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 60px; /* This must be at least the height of your footer */
+  }

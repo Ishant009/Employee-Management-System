@@ -1,0 +1,30 @@
+.btn{
+    margin-right: 20px;
+    box-shadow: 10 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.inline{
+    display: flex;
+}
+
+
+.inline .btn{
+    margin-left: 1rem;
+}
+
+input{
+    border: 1px solid #000000;
+    box-shadow: 10 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+    gap: 10px; /* Adds space between the search boxes */
+}
+
+.form-control[readonly]::placeholder {
+    font-weight: bold;
+    color: black; /* Optional: Adjust the color for better visibility */
+  }

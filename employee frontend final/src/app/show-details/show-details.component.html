@@ -1,0 +1,110 @@
+
+<br>
+
+<div class="container">
+
+<h3>Employee Details</h3>
+<br>
+<div class="box">
+    
+    <div>
+
+      <img src="../assets/download.jpg">
+    </div>
+<div >
+  <div class="table-container">
+    <table  class=" table table-striped  border-dark  ">
+        <thead class=" table-dark">        
+        <tr>
+          <th  >Attribute</th>
+          <th  >Value</th>
+        </tr>
+
+    </thead>
+    <tbody>
+    <tr>
+          <td><b>Id</b></td>
+          <td>{{employee.id}}</td>
+        </tr>
+        <tr>
+          <td><b>First Name</b></td>
+          <td>{{employee.fname}}</td>
+        </tr>
+        <tr>
+          <td><b>Category</b></td>
+          <td>{{employee.category}}</td>
+        </tr>
+        <tr>
+          <td><b>Qualification</b></td>
+          <td>{{employee.qualification}}</td>
+        </tr>
+        <tr>
+          <td><b>Phone</b></td>
+          <td>{{employee.phone}}</td>
+        </tr>
+        <tr>
+          <td><b>Email</b></td>
+          <td>{{employee.email}}</td>
+        </tr>
+        <tr>
+          <td><b>Address</b></td>
+          <td>{{employee.address}}</td>
+        </tr>
+        <tr>
+          <td><b>Salary</b></td>
+          <td>{{employee.salary}}</td>
+        </tr>
+        <tr>
+          <td><b>Office</b></td>
+          <td>{{employee.office}}</td>
+        </tr>
+        <tr>
+          <td><b>Post</b></td>
+          <td>{{employee.post}}</td>
+        </tr>
+        <tr>
+          <td><b>Date Of Birth</b></td>
+          <td>{{employee.dob}}</td>
+        </tr>
+        <tr>
+          <td><b>Joining Date</b></td>
+          <td>{{employee.joiningDate}}</td>
+        </tr>
+
+    </tbody>    
+    </table>
+    <div class="employment-history-section">
+      <h4>Employment History:</h4>
+      <table class="table table-striped border-dark">
+          <thead class="table-dark">
+              <tr>
+                  <th style="min-width: 120px;">Joining Date</th>
+                  <th>Post</th>
+                  <th>Office</th>
+                  <th>Remarks</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let employment of employee.employmentHistory; let i = index;">
+                  <td>{{employment.joiningDate}}</td>
+                  <td>{{employment.post}}</td>
+                  <td>{{employment.office}}</td>
+                  <td>{{employment.remarks}}</td>
+                  <td>
+                      <button (click)="deleteEmploymentData(employment.joiningDate)" class="btn btn-danger btn-sm" style="margin-left: 10px">Delete</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  
+      
+  </div>
+      </div>
+      <a routerLink="/updating-by-id/{{employee.id}}" id="btn1"class="btn btn-secondary">Update Details</a>
+      <a routerLink="/show-all-employees" id="btn2" class="btn btn-danger">Back</a>
+</div>
+    
+</div>
+
+</div>

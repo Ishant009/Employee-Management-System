@@ -1,0 +1,83 @@
+<br>
+<br>
+<!-- <h1>Employee List</h1> -->
+
+<div class="container">
+
+    <div >
+        <form (ngSubmit)=" ngOnInit()" >
+            <div class="form-group col-md-6 inline ">
+                
+            <input type="text" class="form-control" id="search" name="search" placeholder="All Employees" readonly>                <button class="btn btn-secondary " type="submit">Search</button>
+            </div>
+        </form>
+
+    </div><br>
+    <div >
+        <form (ngSubmit)="goToEmployeeName()" >
+            <div class="form-group col-md-6 inline ">
+                
+                <input  [(ngModel)]="EnteredName" type="text" class="form-control" id="search" name="search" placeholder="Search by Name">
+                <button class="btn btn-secondary " type="submit">Search</button>
+            </div>
+        </form>
+
+    </div>
+    <br>
+    <div >
+        <form (ngSubmit)="goToEmployeeOffice()" >
+            <div class="form-group col-md-6 inline ">
+                
+                <input  [(ngModel)]="EnteredOffice" type="text" class="form-control" id="office" name="office" placeholder="Search by Office">
+                <button class="btn btn-secondary " type="submit">Search</button>
+            </div>
+        </form>
+
+    </div>
+    <br>
+    <br>
+<div>
+<table style="margin-bottom: 50px;" class=" table table-responsive table-striped  border-dark">
+
+    <thead class="table-dark ">
+        <tr>
+            <th>Id</th>
+            <th>Emp. Name</th>
+            <th>Mobile No</th>
+            <th>Email</th>
+            <!-- <th>Salary</th> -->
+            <th>Post</th>
+            <th>Office</th>
+            <!-- <th>Joining Date</th> -->
+            <th>Actions</th>
+        </tr>
+
+    </thead> 
+
+
+    <tbody>
+        <tr *ngFor = "let employee of employees; let i = index;">
+            <!-- <td *ngFor="let i = index;">
+                {{ i + 1 }}
+            </td> -->
+            <td> {{ i + 1 }} </td>
+            <td>{{employee.fname}}</td>
+            <td>{{employee.phone}}</td>
+            <td>{{employee.email}}</td>
+            <!-- <td>{{employee.salary}}</td> -->
+            <td>{{employee.post}}</td>
+            <td>{{employee.office}}</td>
+            <!-- <td>{{employee.joiningDate}}</td> -->
+            <td>
+                <button (click) = "updateEmployee(employee.id)" class = "btn  btn-secondary btn-sm"> Update</button>
+                <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>
+                <button (click) = "detailsOfEmployee(employee.id)" class = "btn btn-success btn-sm " style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>
+<br><br><br><br>
+</div>
+
